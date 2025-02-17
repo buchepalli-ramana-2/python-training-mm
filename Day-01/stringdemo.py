@@ -39,5 +39,39 @@ print(len(aname))
 print(len(aname.lstrip()))#remove the left side whitespaces
 print(len(aname.rstrip()))#remove right side whitespaces
 
+## Conditional statemnts
+name = "python"
+# simple if
+if name.startswith("p"):
+    print("string is python")
+    print("inside if")
+    print("still inside if")
+print("regular lines")
 
+
+
+#if-else
+if name.startswith("p"):
+    print("string is python")
+else:
+    print("string is something elses")
+
+#example
+if name.isupper():
+    print("string is upper")
+else:
+    print("string is lower")
+
+
+# instead of hardcoding .. we arereading input from keyboard
+color = input("Enter any color:")
+print("you entered:", color)
+if color == "green":
+    print("you entered green")
+elif color == "red":
+    print("you entered red")
+elif color == "blue":
+    print("Enter entered blue")
+else:
+    print("you entered something else")
 
