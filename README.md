@@ -1,2 +1,2 @@
-# python-training-mm
-Got training in MM
+### Python Beginner to Intermediate training.
+
