@@ -16,7 +16,7 @@ print(name[2:5]) #print from third item till 4th index.
 print(name[::]) # all string
 print(name[:]) #All strings
 print(name[0:10:2]) #print every second char starting from 0 to 10 index
-'''
+
 
 #String Methods
 print(name.capitalize())#first letter will be Uppercase
@@ -74,4 +74,22 @@ elif color == "blue":
     print("Enter entered blue")
 else:
     print("you entered something else")
+'''
+#Loops
+#range(start,stop,increment)
+for i in range(1,6):
+    print(i)
 
+for i in range(1,6,2):
+    print(i)
+
+for i in range(0,6,2):
+    print(i)
+
+name = "Python"
+for char in name:
+    print(char)
+
+name = "Python programming"
+for char in name[0:4]:
+    print(char)
