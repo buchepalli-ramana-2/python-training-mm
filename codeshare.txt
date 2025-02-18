@@ -1,0 +1,536 @@
+
+
+stringdemo.py
+---------------------
+
+
+
+
+name = "python programming"
+print(name)
+print("I love",name)
+
+# slicing
+# string[start:stop:incremental]
+print(name[0])
+print(name[1])
+print(name[10])
+print(name[0:5])
+print(name[9:14])
+print(name[0:3])
+print(name[0:3:1])
+print(name[0:13:2])
+print(name[1:13:4])
+print(name[::])   #python programming
+print(name[:])    #python programming
+print(name[0:18:1])
+print(name[::-1])
+
+name = "python programming"
+print(name.capitalize())
+print(name.title())
+print(name.upper())
+print(name.lower())
+print(name.replace("python","java"))
+print(name)  #YOU are not making any changes to the original string. you are just displaying the output to the string
+print(name.count("p"))
+print(name.count("o"))
+print(name.startswith("p"))
+print(name.endswith("G"))
+print(name.isupper())
+print(name.islower())
+print(name.isalpha())
+print(name.split(" "))
+print(name.center(40)) # 40 is the count of whispaces
+print(name.center(40,"*"))
+aname = "  python "
+print(len(aname))
+print(len(aname.strip())) # strip() is used to remove whitespaces
+print(len(aname.rstrip()))
+print(len(aname.lstrip()))
+
+
+name = "python"
+
+# simple if
+if name.startswith("p"):
+    print("string is python")
+    print("inside if")
+    print("still inside if")
+print("regular lines")
+
+#if-else
+if name.startswith("p"):
+    print("string is python")
+else:
+    print("string is something elses")
+
+#example
+if name.isupper():
+    print("string is upper")
+else:
+    print("string is lower")
+
+# instead of hardcoding .. we arereading input from keyboard
+color = input("Enter any color:")
+print("you entered:", color)
+if color == "green":
+    print("you entered green")
+elif color == "red":
+    print("you entered red")
+elif color == "blue":
+    print("Enter entered blue")
+else:
+    print("you entered something else")
+
+
+
+#example1
+# range(start,stop,incremental)
+for i in range(1,11):
+    print(i)
+
+for i in range(1,11,2):
+    print(i)
+
+for i in range(0,11,2):
+    print(i)
+
+name = "python"
+for char in name:
+    print(char)
+
+name = "python programming"
+for char in name[0:4]:
+    print(char)
+
+
+
+
+
+
+
+
+listdemo.py
+---------------
+
+
+
+alist = [10,56,36,56,32,65,54]
+
+alist.append(90)  # list.append()- add one object to the end
+print("After appending:",alist)
+
+alist.extend([95,83,1])
+print("After extending :",alist)
+
+mycount =alist.count(10) # no. of times value is repeated
+print(mycount)
+# list.insert(index,value)
+alist.insert(1,100)   # list.insert( where to insert(posi), what to insert)
+print("After inserting:",alist)
+
+print("Index position :",alist.index(32))
+
+alist.reverse()
+print("After reversing:",alist)
+
+alist.sort() # ascending order
+print("After sorting :",alist)
+alist.sort(reverse=True)
+print("After sorting:",alist)
+
+
+
+
+
+
+dictionarydemo.py
+--------------------------
+book = {"chap1":10 , "chap2":20 ,"chap3":30}
+
+# display individual values
+print(book["chap1"])  # 10
+print(book["chap2"])  # 20
+
+# add new key value pair
+book["chap3"] = 30
+book["chap4"] = 40
+book["chap5"] = 50
+
+print(book.keys()) # display keys
+
+print(book.values())
+
+print(book.items())
+
+# remove value
+book.pop("chap1")
+print("After removing:",book)
+
+
+
+
+
+
+#combining two dictionaries
+newbook = {"chap8":80,"chap9":90}
+finalbook = {**book,**newbook}
+print(finalbook)
+
+# combining two dictionaries.. updating book itself
+book.update(newbook)
+print(book)
+
+
+#print(book["chap10"])    # will throw error as chap10 is not existing
+print(book.get("chap10")) # since chap10 is not existing ... it will return None 
+print(book.get("chap1"))
+
+
+
+
+
+data = {
+    "glossary": {
+        "title": "example glossary",
+		"GlossDiv": {
+            "title": "S",
+			"GlossList": {
+                "GlossEntry": {
+                    "ID": "SGML",
+					"SortAs": "SGML",
+					"GlossTerm": "Standard Generalized Markup Language",
+					"Acronym": "SGML",
+					"Abbrev": "ISO 8879:1986",
+					"GlossDef": {
+                        "para": "A meta-markup language, used to create markup languages such as DocBook.",
+						"GlossSeeAlso": ["GML", "XML"]
+                    },
+					"GlossSee": "markup"
+                }
+            }
+        }
+    }
+}
+
+#print(data)
+
+#Standard Generalized Markup Language
+print(data['glossary']['GlossDiv']['GlossList']['GlossEntry']['GlossTerm'])
+
+#XML
+print(data['glossary']['GlossDiv']['GlossList']['GlossEntry']['GlossDef']['GlossSeeAlso'][1])
+
+
+
+
+#################################################
+
+
+
+
+colors = [
+{
+"colors": "red",
+"values": "#f00"
+},
+{
+"colors": "green",
+"values": "#0f0"
+},
+{
+"colors": "blue",
+"values": "#00f"
+},
+{
+"colors": "cyan",
+"values": "#0ff"
+},
+{
+"colors": "magenta",
+"values": "#f0f"
+},
+{
+"colors": "yellow",
+"values": "#ff0"
+},
+{
+"colors": "black",
+"values": "#000"
+}
+]
+
+
+write a program to display all the colors and its values.
+
+sample output :
+
+red #f00
+green #0f0
+yellow  #ff0
+magenta #f0f
+..
+..
+..
+
+
+
+
+
+
+for item in colors:
+    print(item['colors'],  item['values'])
+
+############################################
+
+
+alist= [
+  {
+    "login": "mojombo",
+    "id": 1,
+    "node_id": "MDQ6VXNlcjE=",
+    "avatar_url": "https://avatars0.githubusercontent.com/u/1?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/mojombo",
+    "html_url": "https://github.com/mojombo",
+    "followers_url": "https://api.github.com/users/mojombo/followers",
+    "following_url": "https://api.github.com/users/mojombo/following{/other_user}",
+    "gists_url": "https://api.github.com/users/mojombo/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/mojombo/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/mojombo/subscriptions",
+    "organizations_url": "https://api.github.com/users/mojombo/orgs",
+    "repos_url": "https://api.github.com/users/mojombo/repos",
+    "events_url": "https://api.github.com/users/mojombo/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/mojombo/received_events",
+    "type": "User",
+    "site_admin": False
+  },
+  {
+    "login": "defunkt",
+    "id": 2,
+    "node_id": "MDQ6VXNlcjI=",
+    "avatar_url": "https://avatars0.githubusercontent.com/u/2?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/defunkt",
+    "html_url": "https://github.com/defunkt",
+    "followers_url": "https://api.github.com/users/defunkt/followers",
+    "following_url": "https://api.github.com/users/defunkt/following{/other_user}",
+    "gists_url": "https://api.github.com/users/defunkt/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/defunkt/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/defunkt/subscriptions",
+    "organizations_url": "https://api.github.com/users/defunkt/orgs",
+    "repos_url": "https://api.github.com/users/defunkt/repos",
+    "events_url": "https://api.github.com/users/defunkt/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/defunkt/received_events",
+    "type": "User",
+    "site_admin": False
+  }
+]
+
+
+ write a program to display all the keys and values line by line.
+
+
+for subdict in alist:
+    for key,value in subdict.items():
+        print(key)
+        print(value)
+        print("----------------")
+
+######################################################
+
+write a program to display the below IP addresses
+
+192.168.0.1
+192.168.0.2
+192.168.0.3
+..
+..
+192.168.0.10
+
+
+
+print("hello" + "programing")
+print( 4 +5 )
+
+print("hello" + str(5))  # typecasting from number to string
+
+print([10,20] + list((40,50))  )  # typecasting from tuple to list
+
+# method1
+ip = "192.168.0.{}"
+for val  in range(1,11):
+    print(ip.format(val))
+
+string = "I love {}"
+print(string.format("perl"))
+print(string.format("unix"))
+
+# method2
+fixed = "192.168.0."
+for val  in range(1,11):
+    finalip = fixed + str(val)
+    print(finalip)
+
+
+
+######################################################
+
+
+write a program to display the below IP addresses
+
+192.168.0.1
+192.168.0.2
+192.168.0.3
+..
+..
+192.168.0.10
+192.168.1.1
+192.168.1.2
+192.168.1.3
+..
+..
+192.168.1.10
+
+
+
+ip = "192.168.{}.{}"
+for val in range(0,2):
+    for ival in range(1,11):
+        fixed = ip.format(val,ival)
+        print(fixed)
+
+######################################################
+
+data = {
+    'Sales': {
+        'North': {
+            'Alice': 'Manager',
+            'Bob': 'Sales Executive',
+            'Eve': 'Sales Coordinator',
+            'John': 'Account Manager'
+        },
+        'South': {
+            'Charlie': 'Sales Executive',
+            'Grace': 'Regional Sales Manager',
+            'Mallory': 'Business Development Associate'
+        },
+        'West': {
+            'Oscar': 'Sales Executive',
+            'Peggy': 'Account Executive',
+            'Victor': 'Territory Sales Manager'
+        }
+    },
+    'Marketing': {
+        'Digital': {
+            'David': 'SEO Specialist',
+            'Hannah': 'Content Strategist',
+            'Irene': 'Social Media Manager'
+        },
+        'Offline': {
+            'Eve': 'Event Coordinator',
+            'Jake': 'Brand Manager',
+            'Liam': 'Public Relations Specialist'
+        },
+        'Research': {
+            'Mia': 'Market Research Analyst',
+            'Noah': 'Customer Insights Manager'
+        }
+    },
+    'IT': {
+        'Infrastructure': {
+            'Quinn': 'Network Engineer',
+            'Riley': 'System Administrator',
+            'Sam': 'Cloud Architect'
+        },
+        'Development': {
+            'Tina': 'Software Engineer',
+            'Uma': 'Backend Developer',
+            'Walter': 'Full Stack Developer'
+        }
+    },
+    'HR': {
+        'Recruitment': {
+            'Yara': 'Recruitment Specialist',
+            'Zane': 'Talent Acquisition Manager',
+            'Nina': 'HR Coordinator'
+        },
+        'Employee Relations': {
+            'Oliver': 'Employee Relations Specialist',
+            'Sophia': 'HR Business Partner'
+        }
+    },
+    'Finance': {
+        'Accounting': {
+            'Xander': 'Accountant',
+            'Yvette': 'Accounts Payable Specialist',
+            'Zara': 'Financial Analyst'
+        },
+        'Audit': {
+            'Luna': 'Internal Auditor',
+            'Mason': 'Compliance Officer'
+        }
+    }
+}
+
+
+write a program to display the below output:
+
+
+Sales
+-----
+North
+South
+West
+
+
+Marketing
+--------
+Digital
+Offline
+Research
+
+
+IT
+---
+Infrasturcture
+Development
+
+HR
+---
+Recruitment
+Employee Relations
+
+
+
+for key in data:
+    print(key)
+    print("---------")
+    for ikey in data[key]:
+        print(ikey)
+    print()
+######################################################
+
+
+
+######################################################
+
+
+
+
+######################################################
+
+
+
+######################################################
+
+
+
+
+
+
+
+
+
+
