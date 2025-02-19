@@ -567,6 +567,37 @@ with open("clientinfo.txt","r") as fobj:
 ######################################################
 
 
+write a program to display all the lines from the file to the screen
+
+######################################################
+
+write a program to display age and workclass columns data only
+
+
+######################################################
+
+
+write a program to display all the distinct workclasses
+
+Stage-gov
+Private
+Self-emp-not-inc
+..
+..
+..
+
+
+######################################################
+
+
+write a program to display the total count of men and women:
+
+Total male count : xxxx
+Total female count : xxx
+
+
+
+######################################################
 
 
 
