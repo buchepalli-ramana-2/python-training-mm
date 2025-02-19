@@ -567,12 +567,30 @@ with open("clientinfo.txt","r") as fobj:
 ######################################################
 
 
-write a program to display all the lines from the file to the screen
+
+https://github.com/giridhar276/massmutual/raw/refs/heads/main/csvfiles.zip
+
+
+######################################################
+
+
+
+write a program to display all the lines from adult.csv file to the screen
 
 ######################################################
 
 write a program to display age and workclass columns data only
 
+
+
+import csv
+with open("adult.csv") as fobj:
+    reader = csv.reader(fobj)  # converting fobj to csv readable format
+    for line in reader:
+        print("Age:",line[0])
+        print("Workclass:",line[1])
+        print("-------------")
+        
 
 ######################################################
 
@@ -587,6 +605,38 @@ Self-emp-not-inc
 ..
 
 
+
+# method1
+import csv
+workset = set()
+with open("adult.csv") as fobj:
+    reader = csv.reader(fobj)  # converting fobj to csv readable format
+    for line in reader:
+        workclass = line[1]
+        workset.add(workclass)
+    #print(workset)
+    for work in workset:
+        print(work)
+
+
+#method2
+import csv
+worklist = []
+with open("adult.csv") as fobj:
+    reader = csv.reader(fobj)  # converting fobj to csv readable format
+    for line in reader:
+        workclass = line[1].strip()
+        if workclass not in worklist:
+            worklist.append(workclass)
+    #print(workset)
+    for work in worklist:
+        print(work)
+
+
+
+
+
+
 ######################################################
 
 
@@ -596,8 +646,331 @@ Total male count : xxxx
 Total female count : xxx
 
 
+import csv
+workset = set()
+malecount = 0
+femalecount = 0
+with open("adult.csv") as fobj:
+    reader = csv.reader(fobj)  # converting fobj to csv readable format
+    for line in reader:
+        gender = line[9].strip()
+        if gender == "Male":
+            malecount+=1
+        else:
+            femalecount+=1
+    print("Total male count :",malecount)
+    print("TOtal female count:",femalecount)
+
 
 ######################################################
+
+exception handling
+------------------
+
+
+import csv
+try:
+    workset = set()
+    malecount = 0
+    femalecount = 0
+    with open("adult11.csv") as fobj:
+        reader = csv.reader(fobj)  # converting fobj to csv readable format
+        for line in reader:
+            gender = line[9].strip()
+            if gender == "Male":
+                malecount+=1
+            else:
+                femalecount+=1
+        print("Total male count :",malecount)
+        print("TOtal female count:",femalecount)
+except Exception as error:
+    print("file is not found")
+    print("system generated error:",error)
+
+
+
+
+
+
+
+
+
+import csv
+try:
+    workset = set()
+    malecount = 0
+    femalecount = 0
+    with open("adult11.csv") as fobj:
+        reader = csv.reader(fobj)  # converting fobj to csv readable format
+        for line in reader:
+            gender = line[9].strip()
+            if gender == "Male":
+                malecount+=1
+            else:
+                femalecount+=1
+        print("Total male count :",malecount)
+        print("TOtal female count:",femalecount)
+except FileNotFoundError as err:
+    print("File is not found")
+except TypeError as err:
+    print("Invalid operation")
+except ValueError as err:
+    print("INvalid input")
+except (IndexError,KeyError) as err:
+    print("Invalid index or key")
+except Exception as error:
+    print(error)
+    print("unknown exception found")
+    
+    
+    
+    
+    
+    
+    
+############################################################ importing libraries ################
+
+
+
+
+# method1
+import math  ## importing all the methods to your program space
+print(math.log(2))
+print(math.sin(1))
+
+
+# method2 - using alias name
+#pip install matplotlib
+import matplotlib.pyplot as plt
+plt.plot([10,20],[30,40])
+plt.show()
+
+
+# method3 - imorting required methods nly
+from math import log,tan   # we ar importing required methods only   # we are not aimporting all the methods
+print(log(3))
+
+
+
+
+
+###################################################################################################
+
+
+
+Write a script that lists all files and directories in the current working directory line by line.
+
+
+
+import os
+
+try:
+    files = os.listdir()
+    #files = os.listdir("C:\\files\\")
+    #files = os.listdir("C:/files/")
+    for file in files:
+        print(file)
+except Exception as err:
+    print(err)
+
+###################################################################################################
+
+Create a new directory called "test_directory". After creating it, remove the directory.
+
+
+
+import os
+try:
+    dirname = "test_directory"
+    if not os.path.isdir(dirname):
+        os.mkdir(dirname)
+    #os.rmdir(dirname)
+except Exception as err:
+    print(err)
+
+###################################################################################################
+
+write a script to create 10 directories in the current directory as below.
+
+dir1
+dir2
+dir3
+dir4
+..
+..
+dir10
+
+
+
+
+import os
+import sys
+try:
+    for i in range(1,11):
+        dirname = "dir" + str(i)
+        if not os.path.isdir(dirname):
+            os.mkdir(dirname)
+except Exception  as err:
+    print(err)
+    print(sys.exc_info())
+
+
+###################################################################################################
+
+write a script to perform the below operations :
+
+1. display current working directory
+2. display login name
+3. display all environment variables
+4. display today's date ( timestamp )
+5. display sep months calendar
+6. display all .py files and its size in bytes
+7. display the modified time of employees.csv file
+8. display current process id
+9. set an environment variables. ( Eg.    TEST_PATH = "C:/Users/Admin/")
+10. Lock and unlock a file using os.open and os.close
+11. Retrieve the current system's load average.
+12. display python version
+
+
+
+
+###################################################################################################
+
+
+
+write a script to display the below information ( psutil library)
+
+1. CPU Usage
+2. Memory info ( total memory, available, used)
+3. process info
+4. disk partitions
+5. network statistics
+
+
+
+###################################################################################################
+
+
+write a program to read https://www.massmutual.com/  webpage and display all the URLs listed in the home page.  ( use bs4 library )
+
+doc link for your reference: https://www.crummy.com/software/BeautifulSoup/bs4/doc/
+
+Output:
+https://www.massmutual.com/#
+https://www.massmutual.com/smallbusiness
+https://www.massmutual.com/wealthmanagement.html
+https://www.massmutual.com/credit-cards/
+..
+..
+..
+-
+
+
+###################################################################################################
+
+
+write a program to display the below information:
+
+
+Display OS name
+Print Python version
+Show processor details
+Check system architecture (32-bit or 64-bit)
+Retrieve system hostname
+Detect if the system is Windows, Linux, or Mac
+Get Python build and compiler information
+Fetch MAC address and network details
+Monitor system uptime
+display real-time CPU, memory, and disk usage
+
+
+
+
+
+#################################################################################################
+
+
+
+
+###################################################################################################
+
+
+
+
+###################################################################################################
+
+
+
+###################################################################################################
+
+
+
+
+###################################################################################################
+
+
+
+
+
+###################################################################################################
+
+
+
+
+
+###################################################################################################
+
+
+
+
+###################################################################################################
+
+
+
+################################### frequently used builtin libraries #############################
+
+os         : os level activities
+math       : mathematical operations
+sys        :  sys and python config data
+shutil     : copy,move, rmtree  etc
+urllib     : read the web, downloading the files
+logging    : logging all the events
+smtplib    : sending the mails
+ftplib     : performing ftp operations
+sysconfig  :  sys and python config data
+zipfile    : create/extract the zip files
+rarfile    : create/extract the rar files
+cryptopgraphy : encrypting and decrypting the data or files
+tarfile    : create/extract the tar files
+filecmp    : comparing files or directories
+sqlite3    : python default database
+csv        : reading/writing csv files
+xml        : reading/writing xml files
+calendar   : display month,year calendar info
+datetime   : working with date n time
+time       : working with date n time
+fractions  : working with decimal values
+glob       : display all the files
+heapq      : more of array operations ( getting largest among list )
+subprocess : executing system commands in python (  subprocess.getoutput("ls -ltr")
+pdb        : python debugger
+platform   : platform information
+random     : random operations ( shuffling , random digit ... )
+re         : grep + awk + sed
+socket     : networking programming
+stat       : stats of the file
+statistics : basic statistics
+telnetlib  : accessing remote servers 
+
+
+
+
+
+
+
+
+
 
 
 
